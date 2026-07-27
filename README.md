@@ -1,2 +1,3 @@
 # Retail-Sales-Analysis-Python
-End-to-end retail sales analysis using Python (Pandas), Matplotlib, and Excel. Cleaned and analyzed sales data, explored customer and regional trends, created visualizations, and built an interactive dashboard to generate actionable business insights.
+Project Overview
+This project presents an end-to-end Retail Sales Analysis using Python (Pandas), Matplotlib, and Microsoft Excel. The project focuses on cleaning and analyzing retail transaction data, visualizing key sales trends, and developing an interactive Excel dashboard to evaluate sales performance across regions, product categories, customers, and time, enabling data-driven business decisions.
