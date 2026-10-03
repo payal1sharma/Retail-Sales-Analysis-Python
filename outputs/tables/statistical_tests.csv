@@ -1,4 +1,0 @@
-Test,Question,Statistic,p_value
-Mann–Whitney U,Shipping duration: Standard Class vs First Class,8792881.0,0.0
-Kruskal–Wallis,Shipping duration across regions,11.926254391132527,0.007640098804899985
-Kruskal–Wallis,Order value across customer segments,1.4722764888912814,0.4789599750554764
