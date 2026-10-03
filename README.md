@@ -56,7 +56,7 @@ The primary dataset is available at:
 
 ### Customer Intelligence
 
-RFM analysis segmented customers into actionable groups:
+RFM analysis segmented customers into five customer groups:
 
 - Champions: 122
 - Loyal / High Value: 255
@@ -105,8 +105,7 @@ Key findings included:
 
 Multiple forecasting approaches were compared using a fixed **12-month holdout period**.
 
-The selected model was:
-
+The best-performing model on the fixed holdout period was:
 **ETS Additive Damped**
 
 Holdout MAPE:
@@ -114,6 +113,10 @@ Holdout MAPE:
 **18.10%**
 
 The forecast should be treated as a planning baseline rather than a guaranteed future outcome.
+
+### Anomaly Detection
+
+An IQR-based analysis identified **November 2018** as an unusually high-sales month, which can be investigated further using business context.
 
 ---
 
