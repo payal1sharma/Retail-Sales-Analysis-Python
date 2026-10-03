@@ -1,86 +1,151 @@
 # Retail Business Intelligence & Customer Decision Analytics
 
-## Final version
+A business-focused retail analytics project using **Python, SQL/MySQL, statistical analysis, customer analytics, market-basket analysis, forecasting, anomaly detection, and Power BI-ready reporting**.
 
-This project is an upgraded version of the uploaded retail-sales analysis. The original work used Python/Pandas, Matplotlib and Excel; the final version adds SQL/MySQL, customer intelligence, statistics, market-basket analysis, forecasting, anomaly detection and a Power BI-ready reporting layer.
+The objective is to transform raw retail transaction data into actionable insights around **sales performance, customers, products, shipping operations, and future sales planning**.
 
-## Source validation
+---
 
-The canonical source is the **`data` sheet of the uploaded Excel workbook**. It contains:
+## Project Overview
 
-- 9,800 rows
-- 18 source columns
-- 4,922 unique orders
-- 793 customers
-- 1,861 products
-- 17 sub-categories
-- 0 duplicate rows
-- 11 missing postal codes
+This project analyzes **9,800 retail transactions** covering four years of sales activity.
 
-## Run the complete project
+The analysis combines:
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python src/run_all.py
-```
+- Python & Pandas for data cleaning and analysis
+- SQL/MySQL for structured business analytics
+- RFM analysis for customer segmentation
+- Cohort and retention analysis
+- Customer concentration analysis
+- Product and Pareto analysis
+- Market-basket analysis
+- Shipping and operational analysis
+- Statistical hypothesis testing
+- Anomaly detection
+- Time-series forecasting
+- Power BI-ready KPI and DAX measures
 
-This validates the source, creates all analytical tables and creates the portfolio charts.
+---
 
-## MySQL
+## Dataset
 
-```bash
-python src/load_to_mysql.py
-```
+| Metric | Value |
+|---|---:|
+| Transactions | 9,800 |
+| Unique Orders | 4,922 |
+| Customers | 793 |
+| Products | 1,861 |
+| Sub-categories | 17 |
+| Duplicate Rows | 0 |
+| Missing Postal Codes | 11 |
+| Historical Sales | $2,261,536.78 |
 
-Then execute:
+The primary dataset is available at:
 
-1. `sql/schema.sql`
-2. `sql/build_star_schema.sql`
-3. `sql/analysis_queries.sql`
+`data/raw/retail_sales.csv`
 
-The Python loader is intentionally used instead of the Workbench CSV wizard. It validates that the loaded row count equals the 9,800 source rows.
+---
 
-## Where each project layer lives
+## Key Business Insights
 
-| Layer | Location |
-|---|---|
-| Data | `data/raw/retail_sales.csv` |
-| Python | `src/analysis_pipeline.py` |
-| SQL | `sql/` |
-| Business analysis | `outputs/tables/` + `outputs/charts/` |
-| Statistics | `outputs/tables/statistical_tests.csv` |
-| Customer intelligence | `customer_rfm.csv`, `customer_concentration.csv`, `cohort_retention.csv` |
-| Forecasting | `forecast_model_comparison.csv`, `forecast_2019.csv` |
-| Dashboard | `powerbi/DAX_Measures.md` |
-| Recommendations | `docs/PROJECT_REPORT.md` |
-| Interview prep | `docs/INTERVIEW_GUIDE.md` |
-| Final report | `outputs/Retail_Business_Intelligence_Final_Report.pdf` |
-| Final Excel report | `outputs/Retail_Business_Intelligence_Final_Report.xlsx` |
+### Sales Performance
 
-## Final analytical results
+- Historical sales totaled **$2.26M**.
+- 2018 generated **$722,052.02**, the highest annual sales in the dataset.
+- Average order value was approximately **$459.48**.
 
-- Historical sales: **$2,261,536.78**
-- Orders: **4,922**
-- Customers: **793**
-- Products: **1,861**
-- Average order value: **$459.48**
-- Average shipping time: **3.96 days**
-- Median shipping time: **4 days**
-- 2018 sales: **$722,052.02**
-- Best holdout forecast model: **ETS Additive Damped**
-- Best holdout MAPE: **18.10%**
+### Customer Intelligence
 
-## Important limitation
+RFM analysis segmented customers into actionable groups:
 
-The source has no profit, cost, quantity, discount, inventory or returns fields. Do not claim profitability, margin, inventory optimization, discount effectiveness, CAC or true CLV from this dataset.
+- Champions: 122
+- Loyal / High Value: 255
+- Needs Attention: 262
+- At Risk: 87
+- New / Promising: 67
 
-## Resume version
+Approximately **28.9% of customers generated 60% of historical sales**, highlighting customer concentration.
 
-**Retail Business Intelligence & Customer Decision Analytics | Python, SQL, MySQL, Power BI**
+### Product Intelligence
 
-- Analyzed 9,800 retail transactions across four years using Python/Pandas and SQL, developing reusable KPI, customer, product, regional and operational analytics.
-- Built RFM segmentation, cohort retention and customer concentration analysis across 793 customers; found approximately 28.9% of customers accounted for 60% of historical sales.
-- Implemented non-parametric statistical testing, sub-category market-basket analysis, anomaly detection and time-series forecasting with a 12-month holdout evaluation.
-- Designed a MySQL star schema and Power BI decision dashboard covering executive KPIs, customer intelligence, product performance, operations and forecasting.
+Product analysis includes:
+
+- Category and sub-category performance
+- Top products
+- Pareto analysis
+- Market-basket associations
+
+The strongest observed sub-category association by lift was **Fasteners + Machines**, with a lift of approximately **1.66**.
+
+This represents an association for potential cross-selling analysis, not a causal relationship.
+
+### Shipping Operations
+
+Average shipping duration was approximately **3.96 days**, with a median of **4 days**.
+
+Shipping performance was analyzed across:
+
+- Shipping modes
+- Regions
+- Customer segments
+- Product categories
+- Time periods
+
+### Statistical Analysis
+
+Non-parametric statistical tests were used where appropriate.
+
+Key findings included:
+
+- A statistically significant difference in shipping duration between Standard Class and First Class.
+- A statistically significant difference in shipping duration across regions.
+- No statistically significant difference in order value across customer segments in the tested data.
+
+### Forecasting
+
+Multiple forecasting approaches were compared using a fixed **12-month holdout period**.
+
+The selected model was:
+
+**ETS Additive Damped**
+
+Holdout MAPE:
+
+**18.10%**
+
+The forecast should be treated as a planning baseline rather than a guaranteed future outcome.
+
+---
+
+## Project Architecture
+
+```text
+Raw Retail Data
+      │
+      ▼
+Data Validation & Cleaning
+      │
+      ├──────────────► Python / Pandas
+      │
+      ├──────────────► SQL / MySQL
+      │
+      ├──────────────► Customer Analytics
+      │                  ├── RFM
+      │                  ├── Cohort Retention
+      │                  └── Customer Concentration
+      │
+      ├──────────────► Product Analytics
+      │                  ├── Pareto Analysis
+      │                  └── Market Basket Analysis
+      │
+      ├──────────────► Statistical Analysis
+      │
+      ├──────────────► Forecasting
+      │
+      └──────────────► Anomaly Detection
+                         │
+                         ▼
+                 Power BI Reporting Layer
+                         │
+                         ▼
+                Business Recommendations
