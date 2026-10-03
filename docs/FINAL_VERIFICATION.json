@@ -1,0 +1,17 @@
+{
+  "source_used": "Uploaded Excel workbook -> data sheet",
+  "source_shape": [
+    9800,
+    18
+  ],
+  "source_duplicate_rows": 0,
+  "orders": 4922,
+  "customers": 793,
+  "products": 1861,
+  "historical_sales": 2261536.7827,
+  "pipeline_run_return_code": 0,
+  "forecast_selection_metric": "MAPE on fixed 12-month holdout",
+  "selected_forecast_model": "ETS Additive Damped",
+  "selected_forecast_mape_percent": 18.101761823149545,
+  "known_source_limitation": "No profit/cost/quantity/discount/inventory/returns/CAC fields"
+}
